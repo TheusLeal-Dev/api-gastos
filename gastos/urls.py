@@ -1,8 +1,10 @@
-from django.urls import path
-from .views import gastos_list_create, gastos_detail, gastos_total
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import GastoViewSet
+
+router = DefaultRouter()
+router.register(r"gastos", GastoViewSet, basename="gastos")
 
 urlpatterns = [
-    path('gastos/', gastos_list_create),
-    path('gastos/<int:pk>/', gastos_detail),
-    path('gastos/total/', gastos_total),
+    path("", include(router.urls)),
 ]

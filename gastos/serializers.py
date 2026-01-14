@@ -4,4 +4,4 @@ from .models import Gasto
 class GastoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gasto
-        fields = '__all__'
+        fields = ["id", "descricao", "valor", "categoria", "concluido", "created_at"]
